@@ -1,0 +1,19 @@
+props - immutable (which cannot be changed)
+
+State - 
+
+- never touch the DOM directly
+- Any DOM manipulations will be done by react DOM
+- for Bigger Applications DOM manipulation is expensive
+- virtual DOM is a copy of Real DOM
+
+class components & functional components
+from 2013 to 2019
+class components are statefull components
+class components in react feature like life cycle methods
+ - Making network calls will happen only in class components
+
+ functional components
+    - in 2019(16 version) hooks was released
+    hooks are javascript functions which we can use state and lifecycle methods 
+    in functional components
