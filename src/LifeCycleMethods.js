@@ -25,13 +25,34 @@ class LifeCycleMethods extends Component {
         const response = await fetch('https://jsonplaceholder.typicode.com/users')
         const data = await response.json();
         console.log(data)
+        this.setState({usersdata:data})
+        console.log(this.state.usersdata)
     }
 
   render() {
-    console.log('render executed')
     return (
       <div>
         <h2>LifeCycleMethods</h2>
+        <table>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>UserName</th>
+            <th>Email</th>
+          </tr>
+          {
+            this.state.usersdata ? (
+              this.state.usersdata.map((user)=>(
+                <tr>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                </tr>
+              ))
+            ) : <p>Loading...</p>
+          }
+        </table>
       </div>
     )
   }

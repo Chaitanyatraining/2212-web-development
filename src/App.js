@@ -8,6 +8,7 @@ import ContactUs from './ContactUs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Counter from './Counter'
 import LifeCycleMethods from './LifeCycleMethods'
+import Pagination from './Pagination'
 
 const App = () => {
   const productDetails ={
@@ -24,7 +25,8 @@ const App = () => {
       {/* <ConditionalRendering /> */}
       {/* <ContactUs /> */}
       {/* <Counter  /> */}
-      <LifeCycleMethods />
+      {/* <LifeCycleMethods /> */}
+      <Pagination />
     </div>
   )
 }
