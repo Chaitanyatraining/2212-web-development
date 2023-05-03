@@ -1,18 +1,18 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 
-class Pagination extends Component {
+function UseEffectPagination() {
+    const [usersData, setUsersData] = useState([])
+    const [pageNumber, setPageNumber] = useState(0)
 
-    state = {
-        usersData: [],
-        pageNumber: ''
-    }
+    useEffect(()=>{
+        getUserData();
 
-    componentDidMount() {
-        this.getUserData(); 
-    }
+        // return 
+    },[pageNumber])
+    // console.log(pageNumber)
 
-    getUserData = async () => {
-        const response = await fetch(`https://dummyapi.io/data/v1/user?page=${this.state.pageNumber}&limit=10`,
+   const getUserData = async () => {
+        const response = await fetch(`https://dummyapi.io/data/v1/user?page=${pageNumber}&limit=10`,
             {
                 method: 'GET',
                 headers: {
@@ -22,34 +22,23 @@ class Pagination extends Component {
         )
         const { data } = await response.json()
         console.log(data)
-        this.setState({ usersData: data })
+       setUsersData(data)
     }
 
-    componentDidUpdate(prevsProps, prevsState){
-        if(prevsState.pageNumber !== this.state.pageNumber){
-            this.getUserData();
-        }
-    }
+     const handleBtnClick = (num) =>{
+        setPageNumber(num)
+     }
 
-    componentWillUnmount(){
-        console.log('componentWillUnmount executed')
-    }
-
-    handleBtnClick = (num) =>{
-        this.setState({pageNumber: num})
-    }
-
-    render() {
-        return (
-            <>
-                <div className='container text-center'>
+  return (
+    <div>
+         <div className='container text-center'>
                     <h2>Pagination</h2>
                     <div className='row'>
                       {
-                        this.state.usersData.length ? (
+                        usersData.length ? (
                             <div className='row'>
                                {
-                                this.state.usersData.map((user)=>(
+                               usersData.map((user)=>(
                                     <div className='col-md-6 border my-1 p-3'>
                                         <div className='row'>
                                             <div className='col-md-3'>
@@ -69,12 +58,13 @@ class Pagination extends Component {
                 </div>
 
                 {[1,2,3,4,5,6,7,8,9].map((num)=>(
-                    <button className='btn btn-primary m-1' onClick={() => {this.handleBtnClick(num)}}>{num}</button>
+                    <button className='btn btn-primary m-1'
+                     onClick={()=>handleBtnClick(num)}
+                     >{num}</button>
                 ))}
-            </div >
-            </>
-        )
-    }
+            </div>
+    </div>
+  )
 }
 
-export default Pagination
+export default UseEffectPagination
