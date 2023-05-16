@@ -28,6 +28,15 @@ function Header() {
           <Link to='useeffectPagination' class="nav-link">useEffect Pagination</Link>
         </li>
         <li class="nav-item">
+          <Link to='useRefHook' class="nav-link">useRefHook</Link>
+        </li>
+        <li class="nav-item">
+          <Link to='usereducer' class="nav-link">useReducer</Link>
+        </li>
+        <li class="nav-item">
+          <Link to='useContext' class="nav-link">useContext Hook</Link>
+        </li>
+        <li class="nav-item">
           <Link to='contactus' class="nav-link">ContactUs</Link>
         </li>
         <li class="nav-item">

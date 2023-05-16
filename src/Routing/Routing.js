@@ -5,6 +5,9 @@ import ContactUs from '../ContactUs'
 import UseStateHookComp from '../Hooks/UseStateHookComp'
 import UseEffectHookcomp from '../Hooks/UseEffectHookcomp'
 import UseEffectPagination from '../Hooks/UseEffectPagination'
+import UseRefHookComp from '../Hooks/UseRefHookComp'
+import UseReducerHooks from '../Hooks/UseReducerHooks'
+import { CompA } from '../Hooks/useContextHook/CompA'
 
 function Routing() {
   return (
@@ -16,6 +19,9 @@ function Routing() {
         <Route path="useStatehook" element={<UseStateHookComp />} />
         <Route path="useeffecthook" element={<UseEffectHookcomp />} />
         <Route path="useeffectPagination" element={<UseEffectPagination />} />
+        <Route path="useRefHook" element={<UseRefHookComp />} />
+        <Route path="usereducer" element={<UseReducerHooks />} />
+        <Route path="useContext" element={<CompA />} />
     </Routes>
     </>
   )
